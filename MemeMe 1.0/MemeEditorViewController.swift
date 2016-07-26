@@ -12,7 +12,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     var countTopEdits = 0
     var countBottomEdits = 0
-    var meme: MemeClass?
+    var meme: MemeModel?
 
     //all the outles here
     @IBOutlet weak var imagePicked: UIImageView!
@@ -180,20 +180,41 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     func save(){
-          meme = MemeClass(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePicked.image!, memedImage: generateMemedImage() )
+          meme = MemeModel(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePicked.image!, memedImage: generateMemedImage())
+        print("memed saved")
     }
     
-    //Hide UInavegation Bar so the battery and carrier is not displayed //Do not understand Why I need to override this function if I am calling it
+    //Hide UInavegation Bar so the battery and carrier is not displayed //DO NOT UNDERSTAND WHY I DO HAVE TO OVERRIDE THIS FUNCTION
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
 
     @IBAction func sendingThePicture(sender: AnyObject) {
         let memedImage = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil )
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        //I WANT TO KNOW IF THIS WAS THE PORPER WAY TO USE THE COMPLETION
+        controller.completionWithItemsHandler = { (_,_,_,_)->Void in self.save()}
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
     
     
 }
+
+
+struct MemeModel {
+    
+    let topText: String
+    let bottomText: String
+    let originalImage: UIImage
+    let memedImage: UIImage
+    
+    init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage){
+        self.topText = topText
+        self.bottomText = bottomText
+        self.originalImage = originalImage
+        self.memedImage = memedImage
+    }
+    
+}
+

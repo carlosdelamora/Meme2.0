@@ -21,6 +21,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var navBar: UIToolbar!
     
     //construct the dictionary for the text Attributes
     let memeTextAttributes = [
@@ -167,19 +168,23 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     //generate the memed image 
     func generateMemedImage() -> UIImage
     {
+        //Hide toolBar
+        navBar.hidden = true
+        toolBar.hidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
-                                     afterScreenUpdates: true)
-        let memedImage : UIImage =
-            UIGraphicsGetImageFromCurrentImageContext()
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+        toolBar.hidden = false
+        navBar.hidden = false
         return memedImage
     }
     
     
     func save(){
+        
           meme = MemeModel(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePicked.image!, memedImage: generateMemedImage())
         print("memed saved")
     }

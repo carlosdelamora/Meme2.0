@@ -198,7 +198,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         //I WANT TO KNOW IF THIS WAS THE PORPER WAY TO USE THE COMPLETION
-        controller.completionWithItemsHandler = { (_,_,_,_)->Void in self.save()}
+        controller.completionWithItemsHandler = { (_,completed: Bool,_,_)->Void in if completed{self.save()} else{ print("The image was not saved")} }
+        //controller.completionWithItemsHandler(
         self.presentViewController(controller, animated: true, completion: nil)
         
     }

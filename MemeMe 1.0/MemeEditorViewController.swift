@@ -30,26 +30,38 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : -5
     ]
-
+    
+    //tag the textfields to distingush them 
+    
+    
+    
+    
+    func setTextField(textField: UITextField){
+         topTextField.tag = 0
+         bottomTextField.tag = 1
+         //set delegate
+         textField.delegate = self
+         //set the text attributes
+         textField.backgroundColor = UIColor.clearColor()
+         textField.defaultTextAttributes = memeTextAttributes
+         textField.textAlignment = NSTextAlignment.Center
+         switch textField.tag{
+             case 0:
+                 textField.text = "TOP"
+             default:
+                 textField.text = "BOTTOM"
+        }
+    }
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        //set the delegate for the textField
-        topTextField.delegate = self
-        bottomTextField.delegate = self
         
-        //clear background
-        topTextField.backgroundColor = UIColor.clearColor()
-        bottomTextField.backgroundColor = UIColor.clearColor()
+        setTextField(topTextField)
+        setTextField(bottomTextField)
         
-        //text attributes
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        
-        //disable the share Button 
+        //disable the share Button
         shareButton.enabled = false
     }
     
@@ -109,21 +121,30 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     
-    //present the picker controller to choose a picture form library
-    @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
+    func pickAnImageFromSource(source: UIImagePickerControllerSourceType){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        switch source{
+            case .Camera:
+                pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            default:
+                pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        
         presentViewController(pickerController, animated: true, completion: nil)
+    }
     
+    
+    
+    //present the picker controller to choose a picture form library
+    @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
+        pickAnImageFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     //Present the controller with the camara to take a picture
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        pickAnImageFromSource(UIImagePickerControllerSourceType.Camera)
     }
     
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA1932BC1D4BC23000991DFA /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1932BB1D4BC23000991DFA /* MemeModel.swift */; };
 		CAC5E8311D42995200B867BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5E8301D42995200B867BD /* AppDelegate.swift */; };
 		CAC5E8331D42995200B867BD /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5E8321D42995200B867BD /* MemeEditorViewController.swift */; };
 		CAC5E8361D42995200B867BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC5E8341D42995200B867BD /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA1932BB1D4BC23000991DFA /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 		CAC5E82D1D42995200B867BD /* MemeMe 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemeMe 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC5E8301D42995200B867BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC5E8321D42995200B867BD /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				CAC5E8301D42995200B867BD /* AppDelegate.swift */,
 				CAC5E8321D42995200B867BD /* MemeEditorViewController.swift */,
+				CA1932BB1D4BC23000991DFA /* MemeModel.swift */,
 				CAC5E8341D42995200B867BD /* Main.storyboard */,
 				CAC5E8371D42995200B867BD /* Assets.xcassets */,
 				CAC5E8391D42995200B867BD /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC5E8331D42995200B867BD /* MemeEditorViewController.swift in Sources */,
+				CA1932BC1D4BC23000991DFA /* MemeModel.swift in Sources */,
 				CAC5E8311D42995200B867BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

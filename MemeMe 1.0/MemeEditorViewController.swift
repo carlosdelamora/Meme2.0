@@ -218,8 +218,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func sendingThePicture(sender: AnyObject) {
         let memedImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        //I WANT TO KNOW IF THIS WAS THE PORPER WAY TO USE THE COMPLETION
-        controller.completionWithItemsHandler = { (_,completed: Bool,_,_)->Void in if completed{self.save()} else{ print("The image was not saved")} }
+        
+        //completion handeler
+        controller.completionWithItemsHandler = {
+            (_,completed: Bool,_,_)->Void
+            in if completed{
+                self.save()
+            } else{ print("The image was not saved")}
+        }
+        
         //controller.completionWithItemsHandler(
         self.presentViewController(controller, animated: true, completion: nil)
         
@@ -229,19 +236,5 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 }
 
 
-struct MemeModel {
-    
-    let topText: String
-    let bottomText: String
-    let originalImage: UIImage
-    let memedImage: UIImage
-    
-    init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage){
-        self.topText = topText
-        self.bottomText = bottomText
-        self.originalImage = originalImage
-        self.memedImage = memedImage
-    }
-    
-}
+
 

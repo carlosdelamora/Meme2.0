@@ -22,6 +22,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UIToolbar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    
     
     //construct the dictionary for the text Attributes
     let memeTextAttributes = [
@@ -63,6 +66,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         //disable the share Button
         shareButton.enabled = false
+        
+        //disable cancel button
+        cancelButton.enabled = false
+        
     }
     
     //get the hight of the keybord neded to move
@@ -155,6 +162,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             shareButton.enabled = true}
         self.dismissViewControllerAnimated(true, completion: nil)
         
+        // enable the cancel button
+        cancelButton.enabled = true
+        
+        
     }
 
     //the dismiss of the view controller when the Cancel button is pressed. The function is part of conforming with protocol UIImagePickerControllerDelegate
@@ -232,6 +243,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             (_,completed: Bool,_,_)->Void
             in if completed{
                 self.save()
+                let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
+                self.presentViewController(newController, animated: true, completion: nil)
+              
             } else{ print("The image was not saved")}
         }
         
@@ -240,6 +254,18 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        
+        //cancel the selection of the picture. 
+        imagePicked.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        countTopEdits = 0
+        countBottomEdits = 0
+        shareButton.enabled = false
+        cancelButton.enabled = false 
+    }
     
 }
 

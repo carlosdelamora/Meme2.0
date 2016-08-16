@@ -34,12 +34,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSStrokeWidthAttributeName : -5
     ]
     
-    //tag the textfields to distingush them 
-    
-    
     
     
     func setTextField(textField: UITextField){
+        //tag the textfields to distingush them
          topTextField.tag = 0
          bottomTextField.tag = 1
          //set delegate
@@ -229,7 +227,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    //Hide UInavegation Bar so the battery and carrier is not displayed //DO NOT UNDERSTAND WHY I DO HAVE TO OVERRIDE THIS FUNCTION
+    //Hide UInavegation Bar so the battery and carrier is not displayed 
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -249,15 +247,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             } else{ print("The image was not saved")}
         }
         
-        //controller.completionWithItemsHandler(
+        //controller.completionWithItemsHandler
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
     
-    
+    //cancel the selection of the picture, reset all the settings
     @IBAction func cancelButton(sender: AnyObject) {
-        
-        //cancel the selection of the picture. 
         imagePicked.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"

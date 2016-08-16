@@ -18,27 +18,27 @@ class SentMemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
+        
     }
-    
+    //present the controller and start the app as if it was Meme1.0
     @IBAction func meme1(sender: AnyObject) {
         let memeController = storyboard!.instantiateViewControllerWithIdentifier("Meme1.0")
         self.navigationController!.presentViewController(memeController, animated: true, completion: nil)
     }
     
-    
+    //get the number of rows
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
    
-    
+    //populate the cell
     override func tableView(tableView: UITableView,  cellForRowAtIndexPath indexPath: NSIndexPath)-> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell")!
+        //obtain a cell of type Table Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableCell
         let meme = memes[indexPath.row]
+        cell.tableCellImageView.image = meme.memedImage
+        cell.tableCellLabel.text = meme.topText + " " + meme.bottomText
         
-        cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.topText + " " + meme.bottomText
-       
         return cell
     }
     

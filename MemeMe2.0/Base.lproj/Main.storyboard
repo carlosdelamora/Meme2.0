@@ -19,21 +19,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-wh-53K">
-                                <rect key="frame" x="28" y="109.5" width="545" height="381"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Xxw-wh-53K" secondAttribute="height" multiplier="10:7" id="LTI-jI-422"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-wh-53K">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xxw-wh-53K" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XRc-xu-WPb" secondAttribute="bottom" constant="50" id="2OF-qD-DB7"/>
+                            <constraint firstItem="Xxw-wh-53K" firstAttribute="leading" secondItem="GZD-kb-04h" secondAttribute="leading" id="1j1-8E-sqx"/>
                             <constraint firstItem="Xxw-wh-53K" firstAttribute="centerX" secondItem="GZD-kb-04h" secondAttribute="centerX" id="JWY-7T-dvY"/>
+                            <constraint firstItem="Xxw-wh-53K" firstAttribute="top" secondItem="XRc-xu-WPb" secondAttribute="bottom" id="LBS-yJ-USV"/>
+                            <constraint firstItem="prr-AO-1oW" firstAttribute="top" secondItem="Xxw-wh-53K" secondAttribute="bottom" id="OLd-9R-iZ3"/>
                             <constraint firstItem="Xxw-wh-53K" firstAttribute="centerY" secondItem="GZD-kb-04h" secondAttribute="centerY" id="Q5j-UO-Guq"/>
+                            <constraint firstAttribute="trailing" secondItem="Xxw-wh-53K" secondAttribute="trailing" id="QNf-tr-ZGs"/>
                             <constraint firstItem="Xxw-wh-53K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZD-kb-04h" secondAttribute="leadingMargin" priority="900" constant="8" id="eBw-7Z-IGj"/>
-                            <constraint firstItem="Xxw-wh-53K" firstAttribute="top" secondItem="XRc-xu-WPb" secondAttribute="bottom" priority="100" constant="50" id="qNT-1B-Hi0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JWY-7T-dvY"/>
+                                <exclude reference="Q5j-UO-Guq"/>
+                                <exclude reference="eBw-7Z-IGj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="memeImage" destination="Xxw-wh-53K" id="ksh-ch-hU9"/>

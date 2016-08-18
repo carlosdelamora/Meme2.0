@@ -42,6 +42,21 @@ class SentMemesTableViewController: UITableViewController {
         return cell
     }
     
+    //push the detail view controller when the meme is selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
+       
+        let meme = memes[indexPath.row]
+        controller.meme = meme
+        //set the titile of the back button
+        let backButton = UIBarButtonItem()
+        backButton.title = "Table View Controller"
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.pushViewController(controller, animated: true)
+        
+        
+    }
     
     
 }

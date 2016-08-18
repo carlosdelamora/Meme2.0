@@ -71,5 +71,19 @@ class SentMemesCollectionVC: UICollectionViewController {
         cell.collectionCellImage.image = meme.memedImage
         return cell
     }
-
+    
+    //push the Detail View Controller when the meme is selected
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
+        let meme = memes[indexPath.row]
+        controller.meme = meme
+        
+        //set the title of the back button
+        let leftBackButton = UIBarButtonItem()
+        leftBackButton.title = "Collection View"
+        navigationItem.backBarButtonItem = leftBackButton
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
 }

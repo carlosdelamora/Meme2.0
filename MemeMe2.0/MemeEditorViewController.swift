@@ -1,6 +1,6 @@
 //
 //  MemeEditorViewController.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Carlos De la mora on 7/22/16.
 //  Copyright © 2016 Carlos De la mora. All rights reserved.
@@ -70,6 +70,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    
+    
     //get the hight of the keybord neded to move
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
@@ -91,6 +93,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //check if we have a camara
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        subscribeToKeyboardNotifications()
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+
+    
     
     //We need to add an observer to get a notification to move the view when the keybord shows/hides
     func subscribeToKeyboardNotifications() {
@@ -111,20 +129,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        //check if we have a camara
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
-        subscribeToKeyboardNotifications()
-    
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-    }
-
     
     func pickAnImageFromSource(source: UIImagePickerControllerSourceType){
         let pickerController = UIImagePickerController()
@@ -153,7 +157,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-    //set the image form the library to display this fun is called form the delegate UIImagePickerControllerDelegate
+    //set the image form the library to display this func is called form the delegate UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController,  didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
             imagePicked.image = image
@@ -252,15 +256,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    //cancel the selection of the picture, reset all the settings
+    //cancel the selection of the picture go back to the TavBarController
     @IBAction func cancelButton(sender: AnyObject) {
-        imagePicked.image = nil
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        countTopEdits = 0
-        countBottomEdits = 0
-        shareButton.enabled = false
-        cancelButton.enabled = false 
+        let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
+        self.presentViewController(newController, animated: true, completion: nil)
+
     }
     
 }

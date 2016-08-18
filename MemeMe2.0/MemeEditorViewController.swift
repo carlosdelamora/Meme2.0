@@ -247,11 +247,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             (_,completed: Bool,_,_)->Void
             in if completed{
                 self.save()
-                //self.navigationController?.popToRootViewControllerAnimated(true)
-                let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
-                self.presentViewController(newController, animated: true, completion: nil)
-
-                
+                self.navigationController?.popToRootViewControllerAnimated(true)
             } else{ print("The image was not saved")}
         }
         

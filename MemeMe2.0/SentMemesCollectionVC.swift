@@ -49,6 +49,9 @@ class SentMemesCollectionVC: UICollectionViewController {
         //make Sure the tab bar is present and navigation bar are present
         self.tabBarController?.tabBar.hidden = false
         self.navigationController?.navigationBarHidden = false
+        
+        //reload the data in case there is new memes
+        self.collectionView?.reloadData()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

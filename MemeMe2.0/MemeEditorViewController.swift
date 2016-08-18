@@ -256,6 +256,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+   
     //cancel the selection of the picture go back to the TavBarController
     @IBAction func cancelButton(sender: AnyObject) {
         let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")

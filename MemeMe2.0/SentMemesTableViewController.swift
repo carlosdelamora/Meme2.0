@@ -14,16 +14,27 @@ class SentMemesTableViewController: UITableViewController {
     var memes: [MemeModel] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
+    
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        //make Sure the tab bar is present and navigation bar are present 
+        self.tabBarController?.tabBar.hidden = false
         self.navigationController?.navigationBarHidden = false
         
     }
+    
+    
+    
     //present the controller and start the app as if it was Meme1.0
     @IBAction func meme1(sender: AnyObject) {
         let memeController = storyboard!.instantiateViewControllerWithIdentifier("Meme1.0")
-        self.navigationController!.presentViewController(memeController, animated: true, completion: nil)
+        //self.navigationController!.presentViewController(memeController, animated: true, completion: nil)
+        //Hide the bar with the back button and the tab Bar
+        navigationController?.navigationBarHidden = true
+        tabBarController?.tabBar.hidden = true 
+        self.navigationController!.pushViewController(memeController, animated: true)
     }
     
     //get the number of rows

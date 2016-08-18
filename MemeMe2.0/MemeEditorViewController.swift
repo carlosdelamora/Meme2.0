@@ -68,6 +68,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         //disable cancel button
         cancelButton.enabled = false
         
+        //disable tool bar 
+        
     }
     
     
@@ -245,9 +247,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             (_,completed: Bool,_,_)->Void
             in if completed{
                 self.save()
+                //self.navigationController?.popToRootViewControllerAnimated(true)
                 let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
                 self.presentViewController(newController, animated: true, completion: nil)
-              
+
+                
             } else{ print("The image was not saved")}
         }
         
@@ -259,8 +263,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
    
     //cancel the selection of the picture go back to the TavBarController
     @IBAction func cancelButton(sender: AnyObject) {
-        let newController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController")
-        self.presentViewController(newController, animated: true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
 
     }
     

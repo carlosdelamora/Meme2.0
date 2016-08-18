@@ -24,7 +24,12 @@ class SentMemesCollectionVC: UICollectionViewController {
 
     @IBAction func collectionToMeme1(sender: AnyObject) {
         let meme1 = storyboard!.instantiateViewControllerWithIdentifier("Meme1.0")
-        navigationController!.presentViewController(meme1, animated: true, completion: nil)
+        //navigationController!.presentViewController(meme1, animated: true, completion: nil)
+        //Hide the bar with the back button
+        navigationController?.navigationBarHidden = true
+        tabBarController?.tabBar.hidden = true
+        
+        navigationController!.pushViewController(meme1, animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -40,6 +45,10 @@ class SentMemesCollectionVC: UICollectionViewController {
         else{
             layoutFlow.itemSize = CGSizeMake( dimensionx/1.5 , dimensionx/1.5)
         }
+        
+        //make Sure the tab bar is present and navigation bar are present
+        self.tabBarController?.tabBar.hidden = false
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

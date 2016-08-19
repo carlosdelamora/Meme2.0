@@ -208,17 +208,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6L2-Am-SjP">
-                                            <rect key="frame" x="8" y="8" width="138" height="138"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6L2-Am-SjP">
+                                            <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="6L2-Am-SjP" secondAttribute="height" multiplier="1:1" id="dNt-ic-CpC"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="6L2-Am-SjP" firstAttribute="leading" secondItem="f2b-Je-rkV" secondAttribute="leadingMargin" id="1oo-0X-h1X"/>
-                                    <constraint firstItem="6L2-Am-SjP" firstAttribute="top" secondItem="f2b-Je-rkV" secondAttribute="topMargin" id="OdT-5o-pMD"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="6L2-Am-SjP" secondAttribute="bottom" id="iGa-88-tfu"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="6L2-Am-SjP" secondAttribute="trailing" id="myT-Df-RhC"/>
+                                    <constraint firstItem="6L2-Am-SjP" firstAttribute="centerY" secondItem="f2b-Je-rkV" secondAttribute="centerY" id="DKP-tS-a6G"/>
+                                    <constraint firstItem="6L2-Am-SjP" firstAttribute="centerX" secondItem="f2b-Je-rkV" secondAttribute="centerX" id="nGs-gt-90O"/>
+                                    <constraint firstItem="6L2-Am-SjP" firstAttribute="top" secondItem="f2b-Je-rkV" secondAttribute="top" id="tcd-3W-pVG"/>
                                 </constraints>
                                 <size key="customSize" width="154" height="154"/>
                                 <connections>
@@ -297,7 +299,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hC2-v0-c7c">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hC2-v0-c7c">
                                             <rect key="frame" x="8" y="9" width="180" height="181"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="180" id="yPw-u6-9qF"/>

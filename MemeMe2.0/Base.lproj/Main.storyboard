@@ -300,28 +300,48 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hC2-v0-c7c">
-                                            <rect key="frame" x="8" y="9" width="180" height="181"/>
+                                            <rect key="frame" x="8" y="9" width="180" height="180"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="180" id="QFB-cY-u2Y"/>
+                                                <constraint firstAttribute="width" secondItem="hC2-v0-c7c" secondAttribute="height" multiplier="1:1" id="cqY-pk-WEe"/>
                                                 <constraint firstAttribute="width" constant="180" id="yPw-u6-9qF"/>
-                                                <constraint firstAttribute="width" secondItem="hC2-v0-c7c" secondAttribute="height" multiplier="180:181" id="zhD-Iw-y2I"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="yPw-u6-9qF"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzJ-TF-F73">
-                                            <rect key="frame" x="204" y="9" width="380" height="184"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzJ-TF-F73">
+                                            <rect key="frame" x="204" y="9" width="381" height="184"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DzJ-TF-F73" secondAttribute="bottom" constant="-1.5" id="3y6-XT-qjO"/>
                                         <constraint firstItem="DzJ-TF-F73" firstAttribute="leading" secondItem="hC2-v0-c7c" secondAttribute="trailing" constant="16" id="9ba-wa-Koa"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="DzJ-TF-F73" secondAttribute="trailing" constant="8" id="RPy-PJ-xwt"/>
-                                        <constraint firstItem="hC2-v0-c7c" firstAttribute="centerY" secondItem="NB5-HM-hhg" secondAttribute="centerY" id="Vt7-WI-msL"/>
-                                        <constraint firstItem="DzJ-TF-F73" firstAttribute="bottom" secondItem="NB5-HM-hhg" secondAttribute="bottomMargin" constant="1" id="ZAd-s5-Hdd"/>
-                                        <constraint firstItem="DzJ-TF-F73" firstAttribute="top" secondItem="NB5-HM-hhg" secondAttribute="topMargin" constant="1" id="eti-ND-ejH"/>
+                                        <constraint firstItem="hC2-v0-c7c" firstAttribute="centerX" secondItem="NB5-HM-hhg" secondAttribute="centerX" id="Crg-JB-q7V"/>
+                                        <constraint firstItem="DzJ-TF-F73" firstAttribute="top" secondItem="hC2-v0-c7c" secondAttribute="top" id="Dn1-oT-euV"/>
+                                        <constraint firstItem="hC2-v0-c7c" firstAttribute="top" secondItem="NB5-HM-hhg" secondAttribute="topMargin" constant="1" id="R6a-UZ-oBa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DzJ-TF-F73" secondAttribute="trailing" constant="7" id="Xex-tU-87i"/>
+                                        <constraint firstItem="hC2-v0-c7c" firstAttribute="centerY" secondItem="NB5-HM-hhg" secondAttribute="centerY" id="bBy-lV-LnG"/>
+                                        <constraint firstItem="DzJ-TF-F73" firstAttribute="top" secondItem="NB5-HM-hhg" secondAttribute="topMargin" id="eti-ND-ejH"/>
+                                        <constraint firstItem="hC2-v0-c7c" firstAttribute="leading" secondItem="NB5-HM-hhg" secondAttribute="leadingMargin" id="hgE-gX-gp2"/>
                                         <constraint firstItem="hC2-v0-c7c" firstAttribute="top" secondItem="DzJ-TF-F73" secondAttribute="top" id="nC6-ag-4uY"/>
+                                        <constraint firstItem="DzJ-TF-F73" firstAttribute="leading" secondItem="hC2-v0-c7c" secondAttribute="trailing" constant="16" id="nDV-AY-tPZ"/>
                                         <constraint firstItem="hC2-v0-c7c" firstAttribute="leading" secondItem="NB5-HM-hhg" secondAttribute="leadingMargin" id="rA3-4s-HHx"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Crg-JB-q7V"/>
+                                            <exclude reference="nC6-ag-4uY"/>
+                                            <exclude reference="rA3-4s-HHx"/>
+                                            <exclude reference="9ba-wa-Koa"/>
+                                            <exclude reference="eti-ND-ejH"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="tableCellImageView" destination="hC2-v0-c7c" id="Bv8-fA-nub"/>

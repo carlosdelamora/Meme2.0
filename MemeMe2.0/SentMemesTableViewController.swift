@@ -25,6 +25,11 @@ class SentMemesTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 100
+    }
     
     
     //present the controller and start the app as if it was Meme1.0

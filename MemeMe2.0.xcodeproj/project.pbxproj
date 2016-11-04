@@ -18,7 +18,6 @@
 		CAC5E8361D42995200B867BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC5E8341D42995200B867BD /* Main.storyboard */; };
 		CAC5E8381D42995200B867BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC5E8371D42995200B867BD /* Assets.xcassets */; };
 		CAC5E83B1D42995200B867BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC5E8391D42995200B867BD /* LaunchScreen.storyboard */; };
-		CAC5E8511D42995200B867BD /* MemeMe_1_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5E8501D42995200B867BD /* MemeMe_1_0UITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +53,6 @@
 		CAC5E83C1D42995200B867BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC5E8411D42995200B867BD /* MemeMe2.0.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMe2.0.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC5E84C1D42995200B867BD /* MemeMe2.0.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMe2.0.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAC5E8501D42995200B867BD /* MemeMe_1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMe_1_0UITests.swift; sourceTree = "<group>"; };
-		CAC5E8521D42995200B867BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				CAC5E82F1D42995200B867BD /* MemeMe2.0 */,
-				CAC5E84F1D42995200B867BD /* MemeMe2.0UITests */,
 				CAC5E82E1D42995200B867BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,15 +115,6 @@
 				CAC5E83C1D42995200B867BD /* Info.plist */,
 			);
 			path = MemeMe2.0;
-			sourceTree = "<group>";
-		};
-		CAC5E84F1D42995200B867BD /* MemeMe2.0UITests */ = {
-			isa = PBXGroup;
-			children = (
-				CAC5E8501D42995200B867BD /* MemeMe_1_0UITests.swift */,
-				CAC5E8521D42995200B867BD /* Info.plist */,
-			);
-			path = MemeMe2.0UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +186,7 @@
 					CAC5E82C1D42995200B867BD = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5DTAQ4PLY2;
+						LastSwiftMigration = 0810;
 					};
 					CAC5E8401D42995200B867BD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -206,6 +194,7 @@
 					};
 					CAC5E84B1D42995200B867BD = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = CAC5E82C1D42995200B867BD;
 					};
 				};
@@ -284,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC5E8511D42995200B867BD /* MemeMe_1_0UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "noCompany.MemeMe2-0";
 				PRODUCT_NAME = MemeMe2.0;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -433,6 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "noCompany.MemeMe2-0";
 				PRODUCT_NAME = MemeMe2.0;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -467,6 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "noCompany.MemeMe-1-0UITests";
 				PRODUCT_NAME = MemeMe2.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "MemeMe 1.0";
 			};
 			name = Debug;
@@ -478,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "noCompany.MemeMe-1-0UITests";
 				PRODUCT_NAME = MemeMe2.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "MemeMe 1.0";
 			};
 			name = Release;

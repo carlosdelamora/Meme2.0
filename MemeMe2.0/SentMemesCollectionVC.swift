@@ -17,22 +17,22 @@ class SentMemesCollectionVC: UICollectionViewController {
     @IBOutlet weak var layoutFlow: UICollectionViewFlowLayout!
    
     var memes: [MemeModel] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
    
 
-    @IBAction func collectionToMeme1(sender: AnyObject) {
-        let meme1 = storyboard!.instantiateViewControllerWithIdentifier("Meme1.0")
+    @IBAction func collectionToMeme1(_ sender: AnyObject) {
+        let meme1 = storyboard!.instantiateViewController(withIdentifier: "Meme1.0")
         //navigationController!.presentViewController(meme1, animated: true, completion: nil)
         //Hide the bar with the back button
-        navigationController?.navigationBarHidden = true
-        tabBarController?.tabBar.hidden = true
+        navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.isHidden = true
         
         navigationController!.pushViewController(meme1, animated: true)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
        
         let spacex: CGFloat = 0.5
         let spacey: CGFloat = 0.5
@@ -41,21 +41,21 @@ class SentMemesCollectionVC: UICollectionViewController {
         layoutFlow.minimumLineSpacing = spacey
         layoutFlow.minimumInteritemSpacing = spacex
         if self.view.frame.width < self.view.frame.height{
-            layoutFlow.itemSize = CGSizeMake( dimensionx , dimensionx)}
+            layoutFlow.itemSize = CGSize( width: dimensionx , height: dimensionx)}
         else{
-            layoutFlow.itemSize = CGSizeMake( dimensionx/1.5 , dimensionx/1.5)
+            layoutFlow.itemSize = CGSize( width: dimensionx/1.5 , height: dimensionx/1.5)
         }
         
         //make Sure the tab bar is present and navigation bar are present
-        self.tabBarController?.tabBar.hidden = false
-        self.navigationController?.navigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         
         //reload the data in case there is new memes
         self.collectionView?.reloadData()
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize( size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition( to: size, with: coordinator)
         
         
         let spacex: CGFloat = 0.5
@@ -65,29 +65,29 @@ class SentMemesCollectionVC: UICollectionViewController {
         layoutFlow.minimumLineSpacing = spacey
         layoutFlow.minimumInteritemSpacing = spacex
         if size.width < size.height{
-            layoutFlow.itemSize = CGSizeMake( dimensionx , dimensionx)}
+            layoutFlow.itemSize = CGSize( width: dimensionx , height: dimensionx)}
         else{
-            layoutFlow.itemSize = CGSizeMake( dimensionx/1.5 , dimensionx/1.5)
+            layoutFlow.itemSize = CGSize( width: dimensionx/1.5 , height: dimensionx/1.5)
         }
         
     }
     
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return memes.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath) as! CollectionCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionCell
         let meme = memes[indexPath.row]
         cell.collectionCellImage.image = meme.memedImage
         return cell
     }
     
     //push the Detail View Controller when the meme is selected
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
         let meme = memes[indexPath.row]
         controller.meme = meme
         

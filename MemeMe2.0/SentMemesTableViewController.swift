@@ -12,16 +12,16 @@ import UIKit
 class SentMemesTableViewController: UITableViewController {
     
     var memes: [MemeModel] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
    
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         //make Sure the tab bar is present and navigation bar are present 
-        self.tabBarController?.tabBar.hidden = false
-        self.navigationController?.navigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         self.tableView.reloadData()
     }
     
@@ -33,24 +33,24 @@ class SentMemesTableViewController: UITableViewController {
     
     
     //present the controller and start the app as if it was Meme1.0
-    @IBAction func meme1(sender: AnyObject) {
-        let memeController = storyboard!.instantiateViewControllerWithIdentifier("Meme1.0")
+    @IBAction func meme1(_ sender: AnyObject) {
+        let memeController = storyboard!.instantiateViewController(withIdentifier: "Meme1.0")
         //self.navigationController!.presentViewController(memeController, animated: true, completion: nil)
         //Hide the bar with the back button and the tab Bar
-        navigationController?.navigationBarHidden = true
-        tabBarController?.tabBar.hidden = true 
+        navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.isHidden = true 
         self.navigationController!.pushViewController(memeController, animated: true)
     }
     
     //get the number of rows
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
    
     //populate the cell
-    override func tableView(tableView: UITableView,  cellForRowAtIndexPath indexPath: NSIndexPath)-> UITableViewCell {
+    override func tableView(_ tableView: UITableView,  cellForRowAt indexPath: IndexPath)-> UITableViewCell {
         //obtain a cell of type Table Cell
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") as! TableCell
         let meme = memes[indexPath.row]
         cell.tableCellImageView.image = meme.memedImage
         cell.tableCellLabel.text = meme.topText + " " + meme.bottomText
@@ -59,9 +59,9 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     //push the detail view controller when the meme is selected
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
        
         let meme = memes[indexPath.row]
         controller.meme = meme

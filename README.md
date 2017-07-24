@@ -5,6 +5,8 @@ Is an application written originally on Xcode 7 using **swift 2.2**, now is upda
 was required to obtain a nanodegree from Udacity. You can use Meme2.0 to make memes and share them in social media,
 and save them in your picture library.
 
+![picture](https://github.com/carlosdelamora/Meme2.0/blob/master/Image-1.jpg)
+
 ## Installation
 
 The code is written using Swift 3, you need to use Xcode 8.x in order to compile it. Run the command in terminal

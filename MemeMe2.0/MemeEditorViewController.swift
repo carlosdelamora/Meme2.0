@@ -150,7 +150,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     //the dismiss of the view controller when the Cancel button is pressed. The function is part of conforming with protocol UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     //clear the text when beging typing.
